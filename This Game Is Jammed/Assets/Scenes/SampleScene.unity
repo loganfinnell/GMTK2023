@@ -155,8 +155,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e9c6aee1c1d1794eafd000450d59fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 5
-  JumpForce: 5
+  MoveSpeed: 10
+  JumpForce: 9
 --- !u!61 &516278843
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -322,7 +322,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1963389961339283604, guid: 8a0497eb7539a114e88f8400caa07589, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.15
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 1963389961339283604, guid: 8a0497eb7539a114e88f8400caa07589, type: 3}
       propertyPath: m_LocalPosition.y
@@ -380,6 +380,7 @@ GameObject:
   - component: {fileID: 1603353818}
   - component: {fileID: 1603353817}
   - component: {fileID: 1603353816}
+  - component: {fileID: 1603353819}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -461,3 +462,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1603353819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603353815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97cd1cf8f44d66146bd16876f45fcdf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 516278841}

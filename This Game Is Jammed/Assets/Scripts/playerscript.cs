@@ -4,8 +4,9 @@ public class PlayerController : MonoBehaviour
 {
     public float MoveSpeed = 5f;
     public float JumpForce = 5f;
-    public bool IsJumping { get; private set; } = false;
-    public bool IsGrounded { get; private set; } = false;
+    private int jumpsRemaining = 2; // Number of jumps remaining
+    private bool isJumping = false;
+    private bool isGrounded = false;
     private Rigidbody2D rb;
     private Collider2D playerCollider;
 
@@ -22,16 +23,32 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2(moveInput * MoveSpeed, rb.velocity.y);
 
         // Check if the player is on the ground
-        IsGrounded = CheckGrounded();
+        isGrounded = CheckGrounded();
 
         // Handle jumping
         if (Input.GetButtonDown("Jump"))
         {
-            if (IsGrounded || !IsJumping)
+            if (jumpsRemaining > 0)
             {
-                rb.velocity = new Vector2(rb.velocity.x, JumpForce);
-                IsJumping = true;
+                if (isGrounded)
+                {
+                    rb.velocity = new Vector2(rb.velocity.x, JumpForce);
+                }
+                else if (!isJumping)
+                {
+                    rb.velocity = new Vector2(rb.velocity.x, JumpForce);
+                }
+
+                isJumping = true;
+                jumpsRemaining--;
             }
+        }
+
+        // Check if the player is falling down
+        if (isGrounded && rb.velocity.y <= 0)
+        {
+            isJumping = false;
+            jumpsRemaining = 2;
         }
     }
 
@@ -44,10 +61,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Reset IsJumping flag when landing on the ground
+        // Reset jumps when landing on the ground
         if (collision.gameObject.CompareTag("Ground"))
         {
-            IsJumping = false;
+            isJumping = false;
+            jumpsRemaining = 2;
         }
     }
 }

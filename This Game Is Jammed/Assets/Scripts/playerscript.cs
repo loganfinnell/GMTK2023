@@ -7,6 +7,10 @@ public class PlayerController : MonoBehaviour
     private int jumpsRemaining = 2; // Number of jumps remaining
     private bool isJumping = false;
     private bool isGrounded = false;
+    public Transform groundCheck;
+    public float groundCheckRadius;
+    public LayerMask groundLayer;
+    private bool isTouchingGround;
     private Rigidbody2D rb;
     private Collider2D playerCollider;
 
@@ -18,6 +22,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         // Handle horizontal movement
         float moveInput = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(moveInput * MoveSpeed, rb.velocity.y);
@@ -26,19 +31,17 @@ public class PlayerController : MonoBehaviour
         isGrounded = CheckGrounded();
 
         // Handle jumping
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && isTouchingGround)
         {
-            if (jumpsRemaining > 0)
+            if (isGrounded)
             {
-                if (isGrounded)
-                {
-                    rb.velocity = new Vector2(rb.velocity.x, JumpForce);
-                }
-                else if (!isJumping)
-                {
-                    rb.velocity = new Vector2(rb.velocity.x, JumpForce);
-                }
-
+                rb.velocity = new Vector2(rb.velocity.x, JumpForce);
+                isJumping = true;
+                jumpsRemaining--;
+            }
+            else if (jumpsRemaining > 0 && !isJumping)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, JumpForce);
                 isJumping = true;
                 jumpsRemaining--;
             }
@@ -69,5 +72,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 }
+
+
+
 
 

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class InteractionScript : MonoBehaviour
 {
@@ -22,14 +21,14 @@ public class InteractionScript : MonoBehaviour
         {
             if (InteractInput())
             {
-                //If we are grabbing something don't interact with other items, drop the grabbed item first
-                if (isGrabbing)
+                if (detectedObject != null)
                 {
-                    GrabDrop();
-                    return;
+                    Items item = detectedObject.GetComponent<Items>();
+                    if (item != null)
+                    {
+                        item.Interact();
+                    }
                 }
-
-                detectedObject.GetComponent<Items>().Interact();
             }
         }
     }
@@ -58,36 +57,31 @@ public class InteractionScript : MonoBehaviour
     public void PickUpItem(GameObject item)
     {
         pickedItems.Add(item);
-        item.SetActive(false); // Disable the item when picked up
+        item.SetActive(false); 
     }
 
-    public void GrabDrop()
+    public void GrabDrop(GameObject item)
     {
-         if(isGrabbing)
+        if (isGrabbing)
         {
-            //make isGrabbing false
-            isGrabbing=false;
-            //unparent the grabbed object
-            grabbedObject.transform.parent=null;            
-            //set the y position to its origin
-            grabbedObject.transform.position = 
-                new Vector3(grabbedObject.transform.position.x,grabbedObjectYValue,grabbedObject.transform.position.z);
-            //null the grabbed object reference
-            grabbedObject=null;
+            isGrabbing = false;
+            if (grabbedObject != null)
+            {
+                grabbedObject.transform.parent = null;
+                grabbedObject.transform.position = new Vector3(grabbedObject.transform.position.x, grabbedObjectYValue, grabbedObject.transform.position.z);
+                grabbedObject = null;
+            }
         }
-        //Check if we have nothing grabbed grab the detected item
         else
         {
-            //Enable the isGrabbing bool
-            isGrabbing=true;
-            //assign the grabbed object to the object itself
-            grabbedObject=detectedObject;
-            //Parent the grabbed object to the player
-            grabbedObject.transform.parent=transform;
-            //Cache the y value of the object
-            grabbedObjectYValue=grabbedObject.transform.position.y;
-            //Adjust the position of the grabbed object to be closer to hands                        
-            grabbedObject.transform.localPosition=grabPoint.localPosition;
+            isGrabbing = true;
+            if (item != null)
+            {
+                grabbedObject = item;
+                grabbedObject.transform.parent = transform; 
+                grabbedObjectYValue = grabbedObject.transform.position.y;
+                grabbedObject.transform.localPosition = grabPoint.localPosition;
+            }
         }
     }
 }

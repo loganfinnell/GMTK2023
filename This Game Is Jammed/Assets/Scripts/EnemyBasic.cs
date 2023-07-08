@@ -29,7 +29,7 @@ public class EnemyBasic : MonoBehaviour
     IEnumerator Attack()
     {
         //play attack animation 
-        //animator.Play("Attack");
+        animator.Play("Attack");
 
         //attack in interval equal to attack speed
         yield return new WaitForSeconds(attackSpeed);

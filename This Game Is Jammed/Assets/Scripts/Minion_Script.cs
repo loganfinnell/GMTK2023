@@ -12,7 +12,7 @@ public class Minion_Script : MonoBehaviour
     public float attackSpeed;
     Coroutine attackOrder;
     EnemyBasic detectedEnemy;
-
+    private Animator thisAnim;
 
     private void Update()
     {
@@ -22,11 +22,15 @@ public class Minion_Script : MonoBehaviour
         }
 
     }
-            // TODO: Implement Attack Animation
+    private void Start()
+    {
+        thisAnim = GetComponent<Animator>();
+    }
+    // TODO: Implement Attack Animation
     IEnumerator Attack()
     {
         //play attack animation 
-       //animator.Play("Attack");
+      // animator.Play("Attack");
 
         //attack in interval equal to attack speed
         yield return new WaitForSeconds(attackSpeed);

@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Wall
   - Minion
+  - Body Part
   layers:
   - Default
   - TransparentFX

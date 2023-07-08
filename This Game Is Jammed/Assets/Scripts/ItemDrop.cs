@@ -18,5 +18,5 @@ public class ItemDrop : MonoBehaviour
         itemRb.AddForce(Vector2.down * dropSpeed, ForceMode2D.Impulse);
     }
 
-    
+ 
 }

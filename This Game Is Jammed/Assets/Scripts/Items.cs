@@ -7,6 +7,8 @@ public class Items : MonoBehaviour
 {
     public enum InteractionType { NONE, PickUp, Examine, GrabDrop }
     public InteractionType InteractType;
+    
+
 
     private void Reset()
     {
@@ -23,13 +25,12 @@ public class Items : MonoBehaviour
                 gameObject.SetActive(false);
                 Debug.Log("PICK UP");
                 break;
-            case InteractionType.Examine:
-                Debug.Log("EXAMINE");
-                // Grab interaction
-                break;
+
             case InteractionType.GrabDrop:
                 FindObjectOfType<InteractionScript>().GrabDrop();
+                Debug.Log("Grabbed");
                 break;
+
             default:
                 Debug.Log("NULL ITEM");
                 break;

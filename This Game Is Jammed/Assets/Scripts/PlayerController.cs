@@ -5,7 +5,7 @@ public class PlayerController : MonoBehaviour
 {
     private Animator thisAnim;
     private Rigidbody2D rigid;
-
+    public Vector2 speed = new Vector2 (50,50);
     // Use this for initialization
     void Start()
     {
@@ -26,5 +26,12 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector3(1, 1, 1);
         }
        
+            float inputX = Input.GetAxis("Horizontal");
+         float inputY = Input.GetAxis("Vertical");
+        Vector3 movement = new Vector3(speed.x * inputX, speed.y * inputY, 0);
+        movement *= Time.deltaTime;
+        transform.Translate(movement);
+
+
     }
 }

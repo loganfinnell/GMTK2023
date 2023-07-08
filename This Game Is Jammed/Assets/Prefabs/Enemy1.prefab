@@ -102,8 +102,14 @@ MonoBehaviour:
   health: 3
   attackPower: 1
   movementSpeed: 1.5
+  itemDrops:
+  - {fileID: 5479885464424923283, guid: d229afc7c42780b49a55480304b9d1c9, type: 3}
+  - {fileID: 6223521753697209924, guid: af4d99f40462bb34a9d20843d9f4cfd5, type: 3}
+  - {fileID: 8943492588160023257, guid: 7f639b52808fa5e4db548a301ca4d0a4, type: 3}
+  - {fileID: 685432155605983542, guid: c619d1f3630a3624bae5afc4d592457d, type: 3}
   animator: {fileID: 0}
   attackSpeed: 1
+  ItemSpawn: {fileID: 1478813326847978295, guid: 3b9ff5acded096446964ac39ca41d18a, type: 3}
 --- !u!61 &5485309538407363875
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -139,8 +145,8 @@ BoxCollider2D:
   m_Offset: {x: -0.017259061, y: -0.008629531}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.51387465, y: 0.12539041}
-    oldSize: {x: 0.87, y: 0.87}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.94, y: 0.95}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

@@ -10,11 +10,12 @@ public class EnemyBasic : MonoBehaviour
     public int health, attackPower;
     public float movementSpeed;
 
+    public GameObject[] itemDrops;
     public Animator animator;
     public float attackSpeed;
     Coroutine attackOrder;
     Minion_Script detectedMinion;
-
+    public Transform ItemSpawn;
 
     private void Update()
     {
@@ -67,6 +68,7 @@ public class EnemyBasic : MonoBehaviour
         if (health <= 0)
         {
             Die();
+
             return true;
         }
         return false;
@@ -74,6 +76,7 @@ public class EnemyBasic : MonoBehaviour
     protected virtual void Die()
     {
         Debug.Log("Enemy is dead");
+        ItemDrop();
         Destroy(gameObject);
     }
     IEnumerator BlinkRed()
@@ -101,6 +104,9 @@ public class EnemyBasic : MonoBehaviour
         }
     }
 
-
+    private void ItemDrop()
+    {
+        Instantiate(itemDrops[Random.Range(0, itemDrops.Length)],ItemSpawn.position, Quaternion.identity);
+    }
 
 }

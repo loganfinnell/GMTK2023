@@ -1,18 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CastleGate : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public int healthCount;
+    public int maxHealth;
+
+
+    public void init()
     {
-        
+        healthCount = maxHealth;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Losehealth()
     {
-        
+        healthCount--;
+        checkHealthCount();
     }
+
+
+    void checkHealthCount()
+    {
+        if (healthCount <= 0)
+        {
+            Debug.Log("You Lost!");
+
+        }
+    
+    }
+
 }

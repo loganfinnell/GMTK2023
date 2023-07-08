@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Enemy
+  - Wall
+  - Minion
   layers:
   - Default
   - TransparentFX

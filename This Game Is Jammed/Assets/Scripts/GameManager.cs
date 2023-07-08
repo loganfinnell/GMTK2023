@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
 
         //start enemy spawner
         GetComponent<EnemySpawner>().StartSpawning();
-        
+
     }
 
 

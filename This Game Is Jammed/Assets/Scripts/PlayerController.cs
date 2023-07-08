@@ -1,35 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class PlayerController : MonoBehaviour
 {
-    private Rigidbody2D rb2D;
+    private Animator thisAnim;
+    private Rigidbody2D rigid;
 
-    private float movespeed;
-    float moveHorizontal;
-    
-
-    // Start is called before the first frame update
+    // Use this for initialization
     void Start()
     {
-        rb2D = gameObject.GetComponent<Rigidbody2D>();
-        movespeed = 1f;
+        thisAnim = GetComponent<Animator>();
+        rigid = GetComponent<Rigidbody2D>();
     }
-
     // Update is called once per frame
     void Update()
     {
-       moveHorizontal = Input.GetAxisRaw("Horizontal"); 
-    }
-
-    void FixedUpdate()
-    {
-        if(moveHorizontal > 0.1f || moveHorizontal < -0.1f)
+        var h = Input.GetAxis("Horizontal");
+        thisAnim.SetFloat("Speed", Mathf.Abs(h));
+        if (h < 0.0)
         {
-            rb2D.AddForce(new Vector2(moveHorizontal * movespeed, 0f), ForceMode2D.Impulse);
+            transform.localScale = new Vector3(-1, 1, 1);
         }
+        else if (h > 0.0)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+       
     }
-
 }
-

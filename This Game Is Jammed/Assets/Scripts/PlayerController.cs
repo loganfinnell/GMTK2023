@@ -30,4 +30,6 @@ public class PlayerController : MonoBehaviour
             rb2D.AddForce(new Vector2(moveHorizontal * movespeed, 0f), ForceMode2D.Impulse);
         }
     }
+
 }
+

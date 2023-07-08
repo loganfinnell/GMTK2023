@@ -113,12 +113,12 @@ TextureImporter:
       name: enemyM_spritesheet_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 13
-        width: 47
-        height: 142
-      alignment: 9
-      pivot: {x: 0.50000006, y: 0.8917637}
+        x: 0
+        y: 9
+        width: 54
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -134,12 +134,12 @@ TextureImporter:
       name: enemyM_spritesheet_1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 13
-        width: 47
-        height: 141
-      alignment: 9
-      pivot: {x: 0.5, y: 0.88709784}
+        x: 60
+        y: 9
+        width: 55
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -155,10 +155,10 @@ TextureImporter:
       name: enemyM_spritesheet_2
       rect:
         serializedVersion: 2
-        x: 127
-        y: 8
-        width: 119
-        height: 156
+        x: 123
+        y: 4
+        width: 126
+        height: 164
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,12 +176,12 @@ TextureImporter:
       name: enemyM_spritesheet_3
       rect:
         serializedVersion: 2
-        x: 252
-        y: 73
-        width: 87
-        height: 87
-      alignment: 9
-      pivot: {x: 0.4879354, y: 0.12599367}
+        x: 249
+        y: 69
+        width: 94
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -197,12 +197,12 @@ TextureImporter:
       name: enemyM_spritesheet_4
       rect:
         serializedVersion: 2
-        x: 348
-        y: 7
-        width: 63
-        height: 158
-      alignment: 9
-      pivot: {x: 0.35672385, y: 0.89990205}
+        x: 344
+        y: 3
+        width: 71
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -218,12 +218,12 @@ TextureImporter:
       name: enemyM_spritesheet_5
       rect:
         serializedVersion: 2
-        x: 425
-        y: 7
-        width: 63
-        height: 158
-      alignment: 9
-      pivot: {x: 0.35672337, y: 0.899902}
+        x: 421
+        y: 3
+        width: 71
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

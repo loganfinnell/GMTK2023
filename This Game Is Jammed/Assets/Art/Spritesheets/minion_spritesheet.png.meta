@@ -113,12 +113,12 @@ TextureImporter:
       name: minion_spritesheet_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 178
-        width: 100
-        height: 99
-      alignment: 9
-      pivot: {x: 0.5377552, y: 0.103379525}
+        x: 2
+        y: 174
+        width: 108
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -134,12 +134,12 @@ TextureImporter:
       name: minion_spritesheet_1
       rect:
         serializedVersion: 2
-        x: 125
-        y: 233
-        width: 193
-        height: 42
-      alignment: 9
-      pivot: {x: 0.073542066, y: 0.53595734}
+        x: 121
+        y: 230
+        width: 201
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -155,12 +155,12 @@ TextureImporter:
       name: minion_spritesheet_2
       rect:
         serializedVersion: 2
-        x: 125
-        y: 176
-        width: 193
-        height: 43
-      alignment: 9
-      pivot: {x: 0.073542066, y: 0.4473185}
+        x: 121
+        y: 173
+        width: 201
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -176,12 +176,12 @@ TextureImporter:
       name: minion_spritesheet_3
       rect:
         serializedVersion: 2
-        x: 13
-        y: 25
-        width: 88
-        height: 142
+        x: 131
+        y: 90
+        width: 161
+        height: 83
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -197,12 +197,12 @@ TextureImporter:
       name: minion_spritesheet_4
       rect:
         serializedVersion: 2
-        x: 135
-        y: 94
-        width: 153
-        height: 76
-      alignment: 9
-      pivot: {x: 0.115044884, y: 0.24167493}
+        x: 9
+        y: 21
+        width: 96
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -218,12 +218,12 @@ TextureImporter:
       name: minion_spritesheet_5
       rect:
         serializedVersion: 2
-        x: 135
-        y: 11
-        width: 153
-        height: 77
-      alignment: 9
-      pivot: {x: 0.1377362, y: 0.18161696}
+        x: 131
+        y: 7
+        width: 161
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

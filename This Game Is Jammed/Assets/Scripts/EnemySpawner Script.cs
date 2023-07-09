@@ -4,51 +4,41 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public static EnemySpawner instance;
+    void Awake() { instance = this; }
 
-    public static EnemySpawner Instance;
-
-    private void Awake()
-    {
-        Instance = this;
-    }
-
-    // Enemy Prefabs
+    //Enemy prefabs
     public List<GameObject> prefabs;
-
-    //Enemy Spawn Point
+    //Enemy spawn root points
     public List<Transform> spawnPoints;
-
-    // Enemy Spawn Interval
+    //Enemy spawn interval
     public float spawnInterval = 2f;
+
 
     public void StartSpawning()
     {
-        //Call the spawn core routine
-        StartCoroutine(SpawnDelay());  
+        //Call the spawn coroutine
+        StartCoroutine(SpawnDelay());
     }
 
     IEnumerator SpawnDelay()
     {
-        // Call the spawn method
+        //Call the spawn method
         SpawnEnemy();
-        // Wait interval 
+        //Wait spawn interval
         yield return new WaitForSeconds(spawnInterval);
-        // Call core routine
+        //Recall the same coroutine
         StartCoroutine(SpawnDelay());
     }
 
-    public void SpawnEnemy()
+    void SpawnEnemy()
     {
-        // randomize spawned 
+        //Randomize the enemy spawned
         int randomPrefabID = Random.Range(0, prefabs.Count);
-
-        // randomize spawn point 
+        //Randomize the spawn point 
         int randomSpawnPointID = Random.Range(0, spawnPoints.Count);
-
-        //Instantiate enemy prefab
-        GameObject SpawnedEnemy = Instantiate(prefabs[randomPrefabID], spawnPoints[randomSpawnPointID]);
-
-
+        //Instantiate the enemy prefab
+        GameObject spawnedEnemy = Instantiate(prefabs[randomPrefabID], spawnPoints[randomSpawnPointID]);
     }
 
 }

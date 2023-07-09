@@ -69,6 +69,7 @@ public class CraftingTable : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GameObject item = collision.gameObject;
+<<<<<<< HEAD
 
         // Check if the item is one of the required items
         if (requiredItems.Contains(item))
@@ -87,5 +88,10 @@ public class CraftingTable : MonoBehaviour
                 Debug.Log("Slot is already occupied!");
             }
         }
+=======
+        placedItems.Add(item);
+
+        CraftItem();
+>>>>>>> 0f51d7277489c108c125d807fe0898860abf5dcf
     }
 }

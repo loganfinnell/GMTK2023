@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CraftingTable : MonoBehaviour
+
 {
     public List<GameObject> requiredItems;
     public GameObject craftedItemPrefab;
@@ -69,8 +70,30 @@ public class CraftingTable : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GameObject item = collision.gameObject;
-        placedItems.Add(item);
 
+        // Check if the item is one of the required items
+        if (requiredItems.Contains(item))
+        {
+            // Check if the slot is empty
+            if (!placedItems.Contains(item))
+            {
+                // Add the item to the placed items list
+                placedItems.Add(item);
+
+                // Craft the item
+                CraftItem();
+            }
+            else
+            {
+                Debug.Log("Slot is already occupied!");
+            }
+        }
+        placedItems.Add(item);
+    //debug
         CraftItem();
+        
+    
     }
+    
 }
+

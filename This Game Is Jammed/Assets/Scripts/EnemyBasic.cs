@@ -4,62 +4,51 @@ using UnityEngine;
 
 public class EnemyBasic : MonoBehaviour
 {
-    // Health 
-    // Attack
-    //Movement Speed
+    //Health,AttackPower,MoveSpeed
     public int health, attackPower;
-    public float movementSpeed;
+    public float moveSpeed;
 
-    public GameObject[] itemDrops;
-    public Animator animator;
-    public float attackSpeed;
+    public Animator thisAnim;
+    public float attackInterval;
     Coroutine attackOrder;
-    Minion_Script detectedMinion;
-    public Transform ItemSpawn;
+    Tower detectedTower;
 
-    private void Update()
+    void Update()
     {
-        if(!detectedMinion)
+        if (!detectedTower)
         {
-                Move();
+            Move();
         }
-        
     }
-             //TODO: Implement Attack Animation
+
     IEnumerator Attack()
     {
-        //play attack animation 
-        animator.Play("Attack");
-
-        //attack in interval equal to attack speed
-        yield return new WaitForSeconds(attackSpeed);
-
-        //attack again
-       attackOrder = StartCoroutine(Attack());
-
-        
+        thisAnim.Play("Attack", 0, 0);
+        //Wait attackInterval 
+        yield return new WaitForSeconds(attackInterval);
+        //Attack Again
+        attackOrder = StartCoroutine(Attack());
     }
-    
 
-    //Method to Advance towards the Castle
+    //Moving forward
     void Move()
     {
-       transform.Translate(-transform.right* movementSpeed* Time.deltaTime);
-
+        thisAnim.Play("Move");
+        transform.Translate(-transform.right * moveSpeed * Time.deltaTime);
     }
 
     public void InflictDamage()
     {
-        bool minionDied = detectedMinion.LoseHealth(attackPower);
+        bool towerDied = detectedTower.LoseHealth(attackPower);
 
-        if (minionDied)
+        if (towerDied)
         {
-            detectedMinion = null;
+            detectedTower = null;
             StopCoroutine(attackOrder);
         }
     }
 
-    //lose health
+    //Lose health
     public virtual bool LoseHealth(int amount)
     {
         //health = health - amount
@@ -68,45 +57,36 @@ public class EnemyBasic : MonoBehaviour
         if (health <= 0)
         {
             Die();
-
             return true;
         }
         return false;
     }
-    protected virtual void Die()
-    {
-        Debug.Log("Enemy is dead");
-        ItemDrop();
-        Destroy(gameObject);
-    }
+
     IEnumerator BlinkRed()
     {
-        //Change sprite to flash blue when taking damage
+        //Change the spriterendere color to red
         GetComponent<SpriteRenderer>().color = Color.red;
-
-        //wait for really small amount of time 
-        yield return new WaitForSeconds(.2f);
-
-        //revert back to default
+        //Wait for really small amount of time 
+        yield return new WaitForSeconds(0.2f);
+        //Revert to default color
         GetComponent<SpriteRenderer>().color = Color.white;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (detectedMinion)
+        if (detectedTower)
             return;
-        
-        if(collision.tag == "Minion")
-        {
 
-            detectedMinion = collision.GetComponent<Minion_Script>();
+        if (collision.tag == "Minion")
+        {
+            detectedTower = collision.GetComponent<Tower>();
             attackOrder = StartCoroutine(Attack());
         }
     }
 
-    private void ItemDrop()
+    protected virtual void Die()
     {
-        Instantiate(itemDrops[Random.Range(0, itemDrops.Length)],ItemSpawn.position, Quaternion.identity);
+        Debug.Log("Enemy is dead");
+        Destroy(gameObject);
     }
-
 }

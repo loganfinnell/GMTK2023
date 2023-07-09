@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 275056247405160921}
   - component: {fileID: 4704347179209791533}
-  - component: {fileID: -1808644919133768289}
   - component: {fileID: -3741732289385550200}
   - component: {fileID: -8633248206808577248}
+  - component: {fileID: -3732703369529284939}
+  - component: {fileID: 4189164979466677379}
   m_Layer: 0
   m_Name: Enemy2
   m_TagString: Enemy
@@ -87,29 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-1808644919133768289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8318048134804770766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edea22a7e038cb846bb228248fe64771, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 5
-  attackPower: 3
-  movementSpeed: 0.8
-  itemDrops:
-  - {fileID: 5479885464424923283, guid: d229afc7c42780b49a55480304b9d1c9, type: 3}
-  - {fileID: 6223521753697209924, guid: af4d99f40462bb34a9d20843d9f4cfd5, type: 3}
-  - {fileID: 8943492588160023257, guid: 7f639b52808fa5e4db548a301ca4d0a4, type: 3}
-  - {fileID: 685432155605983542, guid: c619d1f3630a3624bae5afc4d592457d, type: 3}
-  animator: {fileID: 0}
-  attackSpeed: 1
-  ItemSpawn: {fileID: 1478813326847978295, guid: 3b9ff5acded096446964ac39ca41d18a, type: 3}
 --- !u!61 &-3741732289385550200
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -182,3 +160,41 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-3732703369529284939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8318048134804770766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edea22a7e038cb846bb228248fe64771, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  attackPower: 1
+  moveSpeed: 1
+  thisAnim: {fileID: 0}
+  attackInterval: 1
+--- !u!95 &4189164979466677379
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8318048134804770766}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3a22109b7ab3b8447b65b8f7942393f7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

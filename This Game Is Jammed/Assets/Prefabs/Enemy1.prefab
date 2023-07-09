@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8710823960629541725}
   - component: {fileID: 8884921621164788090}
-  - component: {fileID: -4296211951829412229}
   - component: {fileID: 5485309538407363875}
   - component: {fileID: -3039301744724776638}
   m_Layer: 0
@@ -87,29 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-4296211951829412229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8607121266271791130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edea22a7e038cb846bb228248fe64771, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 3
-  attackPower: 1
-  movementSpeed: 1.5
-  itemDrops:
-  - {fileID: 5479885464424923283, guid: d229afc7c42780b49a55480304b9d1c9, type: 3}
-  - {fileID: 6223521753697209924, guid: af4d99f40462bb34a9d20843d9f4cfd5, type: 3}
-  - {fileID: 8943492588160023257, guid: 7f639b52808fa5e4db548a301ca4d0a4, type: 3}
-  - {fileID: 685432155605983542, guid: c619d1f3630a3624bae5afc4d592457d, type: 3}
-  animator: {fileID: 0}
-  attackSpeed: 1
-  ItemSpawn: {fileID: 1478813326847978295, guid: 3b9ff5acded096446964ac39ca41d18a, type: 3}
 --- !u!61 &5485309538407363875
 BoxCollider2D:
   m_ObjectHideFlags: 0

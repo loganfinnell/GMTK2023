@@ -3,61 +3,89 @@ using UnityEngine;
 
 public class CraftingTable : MonoBehaviour
 {
-    public List<GameObject> requiredBodyParts;
-    private List<GameObject> placedBodyParts = new List<GameObject>();
+    public List<GameObject> requiredItems;
+    public GameObject craftedItemPrefab;
 
-    // Check if all required body parts are placed on the table
+    private List<GameObject> placedItems = new List<GameObject>();
+
+    // Check if all required items are present on the table
     bool CheckCraftingConditions()
     {
-        if (placedBodyParts.Count != requiredBodyParts.Count)
+        if (placedItems.Count != requiredItems.Count)
             return false;
 
-        foreach (GameObject requiredBodyPart in requiredBodyParts)
+        foreach (GameObject requiredItem in requiredItems)
         {
-            bool foundPart = false;
-            foreach (GameObject placedBodyPart in placedBodyParts)
+            bool foundItem = false;
+            foreach (GameObject placedItem in placedItems)
             {
-                if (placedBodyPart.CompareTag(requiredBodyPart.tag))
+                if (placedItem.CompareTag(requiredItem.tag))
                 {
-                    foundPart = true;
+                    foundItem = true;
                     break;
                 }
             }
 
-            if (!foundPart)
+            if (!foundItem)
                 return false;
         }
 
         return true;
     }
 
-    // Craft the scientist if the conditions are met
-    void CraftScientist()
+    // Craft the item if the conditions are met
+    void CraftItem()
     {
         if (CheckCraftingConditions())
         {
-            // Instantiate the scientist prefab or trigger the desired crafting logic
-            Debug.Log("Scientist Crafted!");
+            // Create the crafted item object
+            GameObject craftedItem = Instantiate(craftedItemPrefab, transform.position, Quaternion.identity);
+
+            // Remove the required items from the table
+            foreach (GameObject requiredItem in requiredItems)
+            {
+                foreach (GameObject placedItem in placedItems)
+                {
+                    if (placedItem.CompareTag(requiredItem.tag))
+                    {
+                        Destroy(placedItem);
+                        break;
+                    }
+                }
+            }
+
+            // Clear the placed items list
+            placedItems.Clear();
+
+            Debug.Log("Item crafted!");
         }
         else
         {
-            Debug.Log("Missing Required Body Parts!");
+            Debug.Log("Missing required items!");
         }
     }
 
-    // Detect when a body part is placed on the table
-    private void OnTriggerEnter(Collider other)
+    // Detect when an item is dropped onto the table
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        GameObject bodyPart = other.gameObject;
-        placedBodyParts.Add(bodyPart);
+        GameObject item = collision.gameObject;
 
-        CraftScientist();
-    }
+        // Check if the item is one of the required items
+        if (requiredItems.Contains(item))
+        {
+            // Check if the slot is empty
+            if (!placedItems.Contains(item))
+            {
+                // Add the item to the placed items list
+                placedItems.Add(item);
 
-    // Detect when a body part is removed from the table
-    private void OnTriggerExit(Collider other)
-    {
-        GameObject bodyPart = other.gameObject;
-        placedBodyParts.Remove(bodyPart);
+                // Craft the item
+                CraftItem();
+            }
+            else
+            {
+                Debug.Log("Slot is already occupied!");
+            }
+        }
     }
 }

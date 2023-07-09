@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8653719598885068355, guid: 083503e6503b1fc4b9c48368554398bd, type: 3}
       propertyPath: m_Name
-      value: NPCScientist Variant
+      value: NPCScientist
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 083503e6503b1fc4b9c48368554398bd, type: 3}
       propertyPath: m_RootOrder
@@ -83,6 +83,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 083503e6503b1fc4b9c48368554398bd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3000893740545310989}
+    - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 083503e6503b1fc4b9c48368554398bd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -2272875116489490243}
+    - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 083503e6503b1fc4b9c48368554398bd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6909570670872887699}
+    - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 083503e6503b1fc4b9c48368554398bd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -869000971893454935}
   m_SourcePrefab: {fileID: 4843985084834002234, guid: 083503e6503b1fc4b9c48368554398bd, type: 3}
 --- !u!1 &6191402283816475646 stripped
 GameObject:
@@ -102,7 +111,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: c566ee797d06fef46927c29aff1c0441, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -110,3 +119,81 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!50 &-2272875116489490243
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6191402283816475646}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!70 &6909570670872887699
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6191402283816475646}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.5, y: 1}
+  m_Direction: 0
+--- !u!114 &-869000971893454935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6191402283816475646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff09d7b6087dc7e44b0b7d2f1cc7828b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  attackPower: 0
+  movementSpeed: 0
+  attackSpeed: 0

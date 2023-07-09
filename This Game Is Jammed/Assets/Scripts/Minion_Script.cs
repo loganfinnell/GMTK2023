@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tower : MonoBehaviour
+public class Minion_Script: MonoBehaviour
 {
     // Start is called before the first frame update
     public int health, attackPower;
     public float movementSpeed;
 
-    public Animator animator;
+    
     public float attackSpeed;
     Coroutine attackOrder;
     EnemyBasic detectedEnemy;
@@ -99,7 +99,7 @@ public class Tower : MonoBehaviour
 
         if (collision.tag == "Enemy")
         {
-
+            thisAnim.SetBool("IsAttacking", true);
             detectedEnemy = collision.GetComponent<EnemyBasic>();
              attackOrder = StartCoroutine(Attack());
         }

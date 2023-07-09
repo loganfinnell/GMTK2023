@@ -8,7 +8,7 @@ public class EnemyBasic : MonoBehaviour
     public int health, attackPower;
     public float moveSpeed;
 
-    public Animator thisAnim;
+    private Animator thisAnim;
     public float attackInterval;
     Coroutine attackOrder;
     Tower detectedTower;
@@ -23,7 +23,7 @@ public class EnemyBasic : MonoBehaviour
 
     IEnumerator Attack()
     {
-        thisAnim.Play("Attack", 0, 0);
+        
         //Wait attackInterval 
         yield return new WaitForSeconds(attackInterval);
         //Attack Again
@@ -33,7 +33,7 @@ public class EnemyBasic : MonoBehaviour
     //Moving forward
     void Move()
     {
-        thisAnim.Play("Move");
+       
         transform.Translate(-transform.right * moveSpeed * Time.deltaTime);
     }
 

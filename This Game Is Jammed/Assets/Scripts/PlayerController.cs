@@ -4,14 +4,22 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+<<<<<<< HEAD
     private Animator thisAnim;
+=======
+   private Animator thisAnim;
+>>>>>>> ee2b856bc7eaa09400fabb910943d7454c14a824
     private Rigidbody2D rigid;
     public Vector2 speed = new Vector2(50, 50);
 
     // Use this for initialization
     void Start()
     {
+<<<<<<< HEAD
         thisAnim = GetComponent<Animator>();
+=======
+       thisAnim = GetComponent<Animator>();
+>>>>>>> ee2b856bc7eaa09400fabb910943d7454c14a824
         rigid = GetComponent<Rigidbody2D>();
     }
 
@@ -20,8 +28,12 @@ public class PlayerController : MonoBehaviour
     {
         var h = Input.GetAxis("Horizontal");
         thisAnim.SetFloat("Speed", Mathf.Abs(h));
+<<<<<<< HEAD
 
         if (h < 0.0f)
+=======
+        if (h < 0.0)
+>>>>>>> ee2b856bc7eaa09400fabb910943d7454c14a824
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }

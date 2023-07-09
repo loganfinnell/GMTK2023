@@ -12,9 +12,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPCScientist
       objectReference: {fileID: 0}
+    - target: {fileID: -8653719598885068355, guid: 083503e6503b1fc4b9c48368554398bd, type: 3}
+      propertyPath: m_TagString
+      value: Minion
+      objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 083503e6503b1fc4b9c48368554398bd, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 083503e6503b1fc4b9c48368554398bd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -178,8 +182,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 1}
+  m_Offset: {x: -0.0385952, y: 1.9619132}
+  m_Size: {x: 0.9631405, y: 3.843166}
   m_Direction: 0
 --- !u!114 &-869000971893454935
 MonoBehaviour:
@@ -193,7 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff09d7b6087dc7e44b0b7d2f1cc7828b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  attackPower: 0
-  movementSpeed: 0
-  attackSpeed: 0
+  health: 5
+  attackPower: 5
+  movementSpeed: 5
+  attackSpeed: 5

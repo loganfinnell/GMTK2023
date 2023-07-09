@@ -25,7 +25,9 @@ public class EnemyBasic : MonoBehaviour
     {
         
         //Wait attackInterval 
+        
         yield return new WaitForSeconds(attackInterval);
+        InflictDamage();
         //Attack Again
         attackOrder = StartCoroutine(Attack());
     }
@@ -39,6 +41,7 @@ public class EnemyBasic : MonoBehaviour
 
     public void InflictDamage()
     {
+
         bool towerDied = detectedTower.LoseHealth(attackPower);
 
         if (towerDied)
@@ -77,7 +80,7 @@ public class EnemyBasic : MonoBehaviour
         if (detectedTower)
             return;
 
-        if (collision.tag == "Minion")
+        if (collision.tag == "Tower")
         {
             detectedTower = collision.GetComponent<Tower>();
             attackOrder = StartCoroutine(Attack());

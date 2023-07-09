@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private Animator thisAnim;
+    
    private Animator thisAnim;
     private Rigidbody2D rigid;
     public Vector2 speed = new Vector2(50, 50);
@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        thisAnim = GetComponent<Animator>();
+        //thisAnim = GetComponent<Animator>();
        thisAnim = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody2D>();
     }

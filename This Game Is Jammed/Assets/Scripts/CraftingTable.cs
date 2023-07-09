@@ -91,7 +91,7 @@ public class CraftingTable : MonoBehaviour
         placedItems.Add(item);
     //debug
         CraftItem();
-        {
+        
     
     }
     

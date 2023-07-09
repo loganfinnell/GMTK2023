@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
         var h = Input.GetAxis("Horizontal");
         thisAnim.SetFloat("Speed", Mathf.Abs(h));
 
-        if (h < 0.0f)
+        
         if (h < 0.0)
         {
             transform.localScale = new Vector3(-1, 1, 1);
